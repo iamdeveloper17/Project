@@ -1,69 +1,25 @@
-import React, { useState } from "react";
-import { Link } from "react-router";
-import axios from "axios";
+import React from 'react'
+import { Link } from 'react-router'
 
 const Register = () => {
-
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleSubmit= async (e)=>{
-    e.preventDefault()
-
-    // axios.post("http://localhost:3000/api/auth/register",{
-    //   username,
-    //   email,
-    //   password
-    // },{
-    //   withCredentials: true
-    // })
-    // .then((res)=>{
-    //   console.log(res.data)
-    // })
-  }
+  const handleSubmit=(e)=>{
+        e.preventDefault()
+    }
 
   return (
     <main>
-      <div className="form-container">
-        <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
-          <input
-            onInput={(e) => {
-              setUsername(e.target.value);
-            }}
-            type="text"
-            name="username"
-            placeholder="Enter username"
-          />
-          <input
-            onInput={(e) => {
-              setEmail(e.target.value);
-            }}
-            type="email"
-            name="email"
-            placeholder="Enter email"
-          />
-          <input
-            onInput={(e) => {
-              setPassword(e.target.value);
-            }}
-            type="password"
-            name="password"
-            placeholder="Enter password"
-          />
-          <button type="submit">Register</button>
-        </form>
-
-        <p>
-          Already have an account?{" "}
-          <Link className="toggleAuthForm" to="/">
-            Login
-          </Link>
-        </p>
-      </div>
+        <div className="form-container">
+            <h1>Register</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="text" name='username' id='username' placeholder='Enter username' />
+                <input type="email" name='email' id='email' placeholder='Enter email' />
+                <input type="password" name='password' id='password' placeholder='Enter Password' />
+                <button className='button primary-button'>Login</button>
+            </form>
+            <p>Already have an account ? <Link to={'/login'}>Login to account.</Link></p>
+        </div>
     </main>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register
